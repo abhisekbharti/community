@@ -1,0 +1,38 @@
+/* Define a CSS animation for the background color */
+@keyframes magicColor {
+    0% {
+      background-color: #ff007f; /* Pink */
+    }
+    25% {
+      background-color: #7f00ff; /* Purple */
+    }
+    50% {
+      background-color: #00ff7f; /* Green */
+    }
+    75% {
+      background-color: #007fff; /* Blue */
+    }
+    100% {
+      background-color: #ff007f; /* Pink (back to starting color) */
+    }
+  }
+  
+  .magic-background {
+    height: 100vh; /* Full screen height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: magicColor 5s infinite; /* 5s duration, infinite loop */
+  }
+  
+  h1 {
+    font-size: 3rem;
+    color: white;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    color: white;
+  }
+  

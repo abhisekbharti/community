@@ -1,0 +1,40 @@
+.user_bodies {
+  /* background-color: #2e282a; */
+  font-family: "Roboto", sans-serif;
+  margin-right: 12px;
+  padding-left: 10px;
+  padding-top: 20px;
+  box-sizing: border-box;
+  width: 120%;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(0, 0, 0, 0.1);
+  border: #144291 solid 2px;
+}
+
+.user_body {
+  border-bottom: #144291 solid 2px;
+}
+.user_body:hover,
+.user:hover {
+  box-shadow: 10px 10px 20px rgb(143, 138, 138);
+  font-weight: 200;
+  font-size: large;
+}
+.user_bodies:hover {
+  cursor: pointer;
+  box-shadow: #848182;
+}
+
+.user {
+  color: aliceblue;
+  font-family: "Roboto", sans-serif;
+  margin: 2px;
+  padding: 5px;
+  box-sizing: border-box;
+  text-shadow: #575153;
+  border-radius: 10px;
+}
+.user image {
+  border-radius: 50%;
+  max-width: 12px;
+  max-height: 12px;
+}
