@@ -1,46 +1,39 @@
-// import axois from "axios";
-import styles from "./Chat.module.css";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import styles from "./Chat.module.css";
 
 function Chat() {
   const user = useSelector((state) => state.selectUser);
   const [message, setMessage] = useState("");
-  let value = ["hii", "how are you", "i'm fine "];
-  //  when tpye message and click send button then send message to server with opposite user
-  function sendMessage() {
-    console.log(message);
-    value.push(message);
-    setMessage("");
-    // axois.post("http://localhost:3001/chat/newMessage"),
-    //   {
-    //     message: "Welcome! your massage send ",
-    //   }.catch((err) => {
-    //     console.log(err);
-    //   });
-  }
-  // demo for storing this type of message user
+  const [messages, setMessages] = useState(["hii", "how are you?", "I'm fine"]);
+  const messageEndRef = useRef(null);  // Reference for the scroll position
 
+  // Scroll to the bottom after new message is sent
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const sendMessage = () => {
+    if (message.trim()) {
+      setMessages((prevMessages) => [message, ...prevMessages]); // New message goes to the top
+      setMessage("");
+      // Here you can add the logic to send the message to the server
+      // axios.post("http://localhost:3001/chat/newMessage", { message });
+    }
+  };
 
   return (
     <section className={styles.chat_body}>
       <div className={styles.chat_heading}>
-        <img src="" alt="" />
         <h3>{user}</h3>
-        {/*  */}
-        {/** always on the top  */}
-        {/* import image and user name */}
-        {/* <label> {name} <img src={image} alt={user}/> </label> */}
-        {/* in future delete message implement */}
       </div>
-      {/* this section is chat message data taken from server */}
-      {/* here two types accepting message 1)linked listed 2) array new msg is last of the array */}
-      <div className={styles.chat_mesaage}>
-        <div className={styles.message}>
-          {value.reverse().map((chat, i) => (
-            <p key={i}>{chat}</p>
-          ))}
-        </div>
+
+      <div className={styles.chat_message}>
+        {/* Render all messages */}
+        {messages.map((chat, i) => (
+          <p key={i}>{chat}</p>
+        ))}
+        <div ref={messageEndRef} /> {/* This is where the scroll will go to */}
       </div>
 
       <div className={styles.chat_footer}>
@@ -50,9 +43,12 @@ function Chat() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button onClick={sendMessage} disabled={!message} >Send</button>
+        <button onClick={sendMessage} disabled={!message.trim()}>
+          Send
+        </button>
       </div>
     </section>
   );
 }
+
 export default Chat;

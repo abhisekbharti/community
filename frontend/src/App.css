@@ -40,3 +40,6 @@
     animation: gradientAnimation 10s ease infinite;
 }
 
+body{
+    margin: 0;
+}
