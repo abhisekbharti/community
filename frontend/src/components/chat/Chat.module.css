@@ -1,9 +1,10 @@
 .chat_body {
   height: 100vh;
   width: 100%;
-  border-left: #144291 solid 1.5px;
+  border-collapse: inherit;
   display: flex;
   flex-direction: column;
+  background-color: #bbb;
 }
 
 .chat_heading {
