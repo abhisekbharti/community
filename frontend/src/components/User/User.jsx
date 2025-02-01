@@ -1,4 +1,4 @@
-import styles from "./user.module.css";
+import styles from "./User.module.css";
 import { useDispatch } from "react-redux";
 import { udpateUser as selectUser } from "../app/feature";
 

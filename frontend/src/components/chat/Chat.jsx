@@ -21,6 +21,11 @@ function Chat() {
       // axios.post("http://localhost:3001/chat/newMessage", { message });
     }
   };
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  };
 
   return (
     <section className={styles.chat_body}>
@@ -41,6 +46,7 @@ function Chat() {
           type="text"
           placeholder="Type your message"
           value={message}
+          onKeyPress={handleKeyPress}
           onChange={(e) => setMessage(e.target.value)}
         />
         <button onClick={sendMessage} disabled={!message.trim()}>

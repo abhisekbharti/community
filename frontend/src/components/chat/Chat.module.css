@@ -46,6 +46,7 @@
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
+  background-color: aliceblue;
 }
 
 .chat_footer button {
